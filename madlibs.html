@@ -1,0 +1,258 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+		<style>
+		
+		#calculator {
+			font-size:1em;
+			line-height: 15px;	
+			color:#292929;
+			width:96.9%;
+			max-width:625px;
+			background-color: #eee;
+		}
+        #calculator ::-webkit-input-placeholder { /* WebKit browsers */
+            color:    #FFF;
+        }
+        #calculator :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #FFF;
+        }
+        #calculator ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #FFF;
+        }
+        #calculator :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:    #FFF;
+        }
+
+		
+		#calculator img {
+			text-align: center;
+			width: 100%;
+		}
+		
+		#calculator form {
+			padding: 10px;
+		}
+		
+        #calculator .label_input_combo{
+            width: 296px;
+            float: left;
+        }
+
+		#calculator label {
+			display:block;
+			margin-top:1.2em;
+		}
+
+		#calculator select, #input, #calculate {
+			margin-bottom:1.2em;
+		   	padding: 5px;
+		   	font-size: 1em;
+		}
+
+		#calculated span {
+			font-weight:bold;
+			color:#101010;
+		}
+
+        #calculator #calculator_submit {
+            margin-top: 1em;
+            clear: both;
+            display: block;
+        }
+
+        #calculator #form_completed_text {
+            line-height: 25px;
+
+        }
+
+		@media only screen 
+		and (max-width: 480px) {
+
+		#calculator {
+		    width:100%;
+		    max-width:430px;
+		}
+
+		#calculator img #banner {
+		    max-width: 450px;
+		}
+        }
+
+		#calculator #selected_locale select[disabled] {
+		    opacity:.5 !important;
+		}
+
+        #calculator .form_output {	
+            text-transform: uppercase;
+            font-family: 'Comic Sans', 'Comic Sans MS';
+			font-weight: bold;
+			color: #13a5d6;
+        }
+
+        #calculator #form_completed_text {
+            font-size: 1.1em;
+			padding: 10px;
+        }
+
+		#calculator .prompt {
+            font-size: smaller;
+			color: #666;
+			font-style: italic;
+        }
+
+		#calculator #more-media {
+            margin-top: 10px;
+        }
+
+		</style>
+    </head>
+    <body>
+        <!-- START COPY HERE -->
+		
+		<section id="calculator">
+		<img id="banner" src="http://assets.motherjones.com/interactives/projects/2013/08/nsa/banner/nsa-mad-libs-banner.png"/>
+        <form id="nsa_form" onsubmit="nsa_mad_lib(); return false;">
+            <input id="calculator_submit" type="submit" value="Give me random answers!"></input>
+
+            <!--<div class="label_input_combo"> 
+                <label for="one">Adverb <span class="prompt">e.g., "quickly"</span></label>
+                    <input placeholder="Quickly" type="text" class="nsa_input" name="one" id="nsa_input_1" />
+            </div>-->
+
+            <div class="label_input_combo"> 
+                <label for="two">Present-tense verb <span class="prompt">e.g., "run"</span></label>
+                    <input placeholder="Smash" type="text" class="nsa_input" name="two" id="nsa_input_2" />
+            </div>
+
+            <div class="label_input_combo"> 
+            <label for="three">Plural noun <span class="prompt">e.g., "trees"</span></label>
+                <input placeholder="Grapes" type="text" class="nsa_input" name="three" id="nsa_input_3" />
+            </div>
+
+            <div class="label_input_combo"> 
+            <label for="four">Preposition <span class="prompt">e.g., "into"</span></label>
+                <input placeholder="Into" type="text" class="nsa_input" name="four" id="nsa_input_4" />
+            </div>
+
+            <!-- ><div class="label_input_combo"> 
+            <label for="five">Adjective <span class="prompt">e.g., "happy"</span></label>
+                <input placeholder="Happy" type="text" class="nsa_input" name="five" id="nsa_input_5" />
+            </div> -->
+
+            <div class="label_input_combo"> 
+            <label for="six">Plural Noun <span class="prompt">e.g., "bunnies"</span></label>
+                <input placeholder="Bunnies" type="text" class="nsa_input" name="six" id="nsa_input_6" />
+            </div>
+
+            <div class="label_input_combo"> 
+            <label for="seven">Government agency <span class="prompt">e.g., "DOJ"</span></label>
+                <input placeholder="DOJ" type="text" class="nsa_input" name="seven" id="nsa_input_7" />
+            </div>
+
+            <div class="label_input_combo"> 
+            <label for="eight">Past-tense verb ending in -ed <span class="prompt">e.g., "cried"</span></label>
+                <input placeholder="Napped" type="text" class="nsa_input" name="eight" id="nsa_input_8" />
+            </div>
+
+
+            <div class="label_input_combo"> 
+            <label for="nine">Holiday <span class="prompt">e.g., "Independence Day"</span></label>
+                <input placeholder="Independence Day" type="text" class="nsa_input" name="nine" id="nsa_input_9" />
+            </div>
+
+
+            <div class="label_input_combo"> 
+            <label for="ten">Verb <span class="prompt">e.g., "haunt"</span></label>
+                <input placeholder="bake" type="text" class="nsa_input" name="ten" id="nsa_input_10" />
+            </div>
+
+
+            <div class="label_input_combo"> 
+            <label for="eleven">Plural noun <span class="prompt">e.g., "sweaters"</span></label>
+                <input placeholder="sweaters" type="text" class="nsa_input" name="eleven" id="nsa_input_11" />
+            </div>
+
+
+            <!-- <div class="label_input_combo"> 
+            <label for="twelve">Present-tense verb <span class="prompt">e.g., "run"</span></label>
+                <input placeholder="whisk" type="text" class="nsa_input" name="twelve" id="nsa_input_12" />
+            </div> -->
+
+
+            <!-- <div class="label_input_combo"> 
+            <label for="thirteen">Acting verb ending in -ing <span class="prompt">e.g., "tossing"</span></label>
+                <input placeholder="bewildering" type="text" class="nsa_input" name="thirteen" id="nsa_input_13" />
+            </div> -->
+
+
+            <div class="label_input_combo"> 
+            <label for="fourteen">Plural noun <span class="prompt">e.g., "kitties"</span></label>
+                <input placeholder="Kitties" type="text" class="nsa_input" name="fourteen" id="nsa_input_14" />
+            </div>
+
+            <div style="display:block; clear: both; height:1px"></div>
+            <input id="calculator_submit" type="submit" value="Hit me!"></input>
+
+        </form>
+        <p id="form_completed_text" style="display:none;">
+            The new language proposed by the government would allow the FBI to
+            <span class="form_output" id="nsa_output_1"></span>
+            <span class="form_output" id="nsa_output_2"></span>
+            <span class="form_output" id="nsa_output_3"></span>
+            <span class="form_output" id="nsa_output_4"></span>
+            <span class="form_output" id="nsa_output_5"></span>
+            <span class="form_output" id="nsa_output_6"></span>.
+            The Government has advised the Court that this change was prompted by the fact that the
+            <span class="form_output" id="nsa_output_7"></span>
+            <span class="form_output" id="nsa_output_8"></span>
+            <span class="form_output">
+				on
+			</span>
+            <span class="form_output" id="nsa_output_9"></span>.
+            Nevertheless, the current procedures require the FBI to
+            <span class="form_output" id="nsa_output_10"></span>
+            <span class="form_output" id="nsa_output_11"></span>.
+            <span class="form_output" id="nsa_output_12"></span>
+            The change is intended to eliminate the requirement of
+            <span class="form_output" id="nsa_output_13"></span>
+            <span class="form_output" id="nsa_output_14"></span>.
+            <img id="more-media" src="http://assets.motherjones.com/interactives/projects/2013/08/nsa_redacted.png"/>
+        </p>
+        <a href="#" onclick="reset_madlib(); return false;" style="display:none;" id="mad_lib_reset">
+            More madness?
+        </a>
+		</section>
+        <script>
+            var number_of_inputs = 14;
+            var nsa_form = $('#nsa_form');
+            nsa_form.submit(function() {
+                nsa_mad_lib();
+                return false;
+            });
+            var nsa_mad_lib = function() {
+                for ( var i = 0; i < number_of_inputs; i++) {
+                    $('#nsa_output_' + (i+1)).text(
+                        $('#nsa_input_' + (i+1)).val()
+                            ?  $('#nsa_input_' + (i+1)).val()
+                            :  $('#nsa_input_' + (i+1)).attr('placeholder')
+                    );
+                }
+                $('#form_completed_text').show();
+                $('#mad_lib_reset').show();
+                nsa_form.hide();
+                $('#nsa_photo_essay').show();
+            }
+            var reset_madlib = function() {
+                $('#form_completed_text').hide();
+                $('#mad_lib_reset').hide();
+                nsa_form.show();
+                for ( var i = 0; i < number_of_inputs; i++) {
+                    $('#nsa_input_' + (i+1)).val('');
+                }
+            }
+        </script>
+
+    </body>
+</html>
